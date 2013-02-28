@@ -1138,8 +1138,8 @@ mejs.HtmlMediaElementShim = {
 
 		// check for placement inside a <p> tag (sometimes WYSIWYG editors do this)
 		node = htmlMediaElement.parentNode;
-		while (node !== null && node.tagName.toLowerCase() != 'body') {
-			if (node.parentNode.tagName.toLowerCase() == 'p') {
+		while (node && node.tagName && node.tagName.toLowerCase() != 'body') {
+			if (node && node.parentNode && node.parentNode.tagName && node.parentNode.tagName.toLowerCase() == 'p') {
 				node.parentNode.parentNode.insertBefore(node, node.parentNode);
 				break;
 			}
